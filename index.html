@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Address Checker</title>
+    <img src="https://grabify.link/2Q2G8C">
+</head>
+<body>
+    <h1>Your IP Address:</h1>
+    <p id="ip-address">Loadinsssg...</p>
+
+    <script>
+        // Function to fetch the IP address using ipify API
+        function getIPAddress() {
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ip-address').textContent = data.ip;
+                })
+                .catch(error => {
+                    console.error('Error fetching IP address:', error);
+                    document.getElementById('ip-address').textContent = 'Unable to retrieve IP address.';
+                });
+        }
+
+        // Call the function on page load
+        window.onload = getIPAddress;
+    </script>
+</body>
+</html>
